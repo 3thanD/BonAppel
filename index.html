@@ -50,26 +50,27 @@
             }
         }
 
-        /* Bon Appel Logo Reconstruction (Fallback styles) */
+        /* Bon Appel Logo (styled text mark) */
         .logo-container {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            line-height: 0.85;
-            font-weight: 300;
-            letter-spacing: -1px;
+            line-height: 0.9;
         }
         .logo-top {
-            font-size: 1.8rem;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 2px;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 0.18em;
+            border-bottom: 2px solid currentColor;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
             width: 100%;
             text-align: center;
         }
         .logo-bottom {
-            font-size: 1.8rem;
-            padding-top: 2px;
-            font-weight: 400;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
         }
 
         /* Smooth Scroll */
@@ -150,27 +151,12 @@
         // --- Components ---
 
         // Safe Logo Component (Handles image error safely)
-        const Logo = () => {
-            const [imgError, setImgError] = useState(false);
-
-            if (imgError) {
-                return (
-                    <div className="logo-container font-sans text-white hover:text-amber-400 transition-colors duration-300">
-                        <span className="logo-top tracking-widest">BON</span>
-                        <span className="logo-bottom tracking-widest">APPEL</span>
-                    </div>
-                );
-            }
-
-            return (
-                <img
-                    src="Bon-Appel-v3-logo-8bit-800x.png"
-                    alt="Bon Appel"
-                    className="h-16 w-auto object-contain hover:opacity-80 transition-opacity duration-300"
-                    onError={() => setImgError(true)}
-                />
-            );
-        };
+        const Logo = () => (
+            <div className="logo-container font-sans text-white hover:text-amber-400 transition-colors duration-300">
+                <span className="logo-top">BON</span>
+                <span className="logo-bottom">APPEL</span>
+            </div>
+        );
 
         const Nav = () => {
             const [isOpen, setIsOpen] = useState(false);

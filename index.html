@@ -108,6 +108,19 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
+        // First IT ticket solved: Verizon FiOS Tech Support, January 2011.
+        // Years of experience below is computed from this, not hardcoded.
+        const CAREER_START_DATE = new Date(2011, 0, 1);
+        function getYearsOfExperience() {
+            const now = new Date();
+            let years = now.getFullYear() - CAREER_START_DATE.getFullYear();
+            const hadAnniversaryThisYear =
+                now.getMonth() > CAREER_START_DATE.getMonth() ||
+                (now.getMonth() === CAREER_START_DATE.getMonth() && now.getDate() >= CAREER_START_DATE.getDate());
+            if (!hadAnniversaryThisYear) years -= 1;
+            return years;
+        }
+
         // --- Icons (Inline SVGs for stability) ---
         const IconBase = ({ size = 24, className = "", children, ...props }) => (
             <svg
@@ -308,7 +321,7 @@
                                     In the world of IT infrastructure, this isn't just a saying—it’s a risk. A single unpatched server, a rogue mobile device, or a misconfigured firewall can compromise an entire network. I founded <strong>Bon Appel</strong> to be the antidote to that chaos.
                                 </p>
                                 <p>
-                                    I am <strong>Ethan Davis</strong>. With over 15 years of experience, I don't just fix computers; I architect resilience. From deploying Microsoft Intune for hundreds of municipal endpoints to modernizing legacy systems for city governments, I bring a "premium" mindset to every ticket.
+                                    I am <strong>Ethan Davis</strong>. With over {getYearsOfExperience()} years of experience, I don't just fix computers; I architect resilience. From deploying Microsoft Intune for hundreds of municipal endpoints to modernizing legacy systems for city governments, I bring a "premium" mindset to every ticket.
                                 </p>
                                 <p>
                                     Beyond the server room, I am a creator. My background in web development and e-commerce taught me that technology ultimately serves a business purpose. I combine the discipline of a Systems Admin with the agility of a developer to build centralized, efficient hubs that help businesses grow.
